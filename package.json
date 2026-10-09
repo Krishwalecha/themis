@@ -1,0 +1,21 @@
+{
+  "name": "themis",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Full-stack API engineering workspace: testing, monitoring, contract validation and AI summaries.",
+  "workspaces": [
+    "server",
+    "client",
+    "cli"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c cyan,magenta \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "test": "npm test -w server && npm test -w cli",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w client",
+    "themis": "node cli/bin/themis.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
