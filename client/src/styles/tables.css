@@ -1,0 +1,245 @@
+/* Tables, pagination, and tables-as-cards on phones. */
+
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th {
+  height: 36px;
+  padding: 0 var(--s4);
+  text-align: left;
+  font: 500 10px var(--mono);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.table td {
+  height: 54px;
+  padding: var(--s2) var(--s4);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table .num {
+  text-align: right;
+  font: 12px var(--mono);
+  white-space: nowrap;
+}
+
+.table th.num {
+  font: 500 10px var(--mono);
+}
+
+.card .table th:first-child,
+.card .table td:first-child {
+  padding-left: 0;
+}
+
+.card .table th:last-child,
+.card .table td:last-child {
+  padding-right: 0;
+}
+
+.card .table th {
+  background: transparent;
+}
+
+.card-flush .table th:first-child,
+.card-flush .table td:first-child {
+  padding-left: var(--s5);
+}
+
+.card-flush .table th:last-child,
+.card-flush .table td:last-child {
+  padding-right: var(--s5);
+}
+
+.card-flush .table th {
+  border-top: 1px solid var(--border);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable td {
+  transition: background 0.12s var(--ease);
+}
+
+.clickable:hover td {
+  background: var(--surface-2);
+}
+
+.request-cell {
+  max-width: 420px;
+}
+
+.request-cell .strong {
+  margin-bottom: 3px;
+}
+
+.actions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.actions > * + * {
+  margin-left: var(--s1);
+}
+
+.table th {
+  color: var(--faint);
+  background: transparent;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+}
+
+.table tbody tr:hover td {
+  background: var(--hover);
+}
+
+/* ---- pagination ---- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  padding: var(--s1) 2px;
+}
+
+.pagination-range {
+  font: 12px var(--mono);
+  color: var(--text-2);
+}
+
+.pagination-range span {
+  color: var(--faint);
+}
+
+.pagination-pages {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.pagination-num {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 6px;
+  border: 1px solid transparent;
+  border-radius: var(--r);
+  background: none;
+  font: 12px var(--mono);
+  color: var(--muted);
+  transition:
+    background 0.15s var(--ease),
+    color 0.15s var(--ease),
+    border-color 0.15s var(--ease);
+}
+
+.pagination-num:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+.pagination-num.active {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.pagination-gap {
+  min-width: 22px;
+  text-align: center;
+  font: 12px var(--mono);
+  color: var(--faint);
+}
+
+.table tr.selected td {
+  background: var(--accent-soft);
+}
+
+@media (max-width: 640px) {
+  .table-wrap {
+    overflow: visible;
+  }
+
+  .table,
+  .table tbody {
+    display: block;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tr {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .table tr:last-child {
+    border-bottom: 0;
+  }
+
+  .table td {
+    display: block;
+    order: 3;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    font-size: 12px;
+    background: none;
+  }
+
+  .table td.request-cell {
+    order: 1;
+    flex: 1 1 calc(100% - 40px);
+    min-width: 0;
+    font-size: 13.5px;
+  }
+
+  .table td.actions .btn {
+    min-height: 28px;
+  }
+
+  .table td.actions {
+    order: 9;
+    margin-left: auto;
+  }
+
+  .table td.num {
+    text-align: left;
+  }
+
+  .table td[colspan] {
+    flex-basis: 100%;
+  }
+
+  .table td.request-cell + td:not(.actions) {
+    margin-left: 0;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}

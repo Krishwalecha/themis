@@ -1,0 +1,17 @@
+# The marketing page, sign-up and public status pages are for search; the signed-in app and the API are not.
+User-agent: *
+Allow: /
+Allow: /status/
+Disallow: /api/
+Disallow: /dashboard
+Disallow: /workspace
+Disallow: /monitors
+Disallow: /incidents
+Disallow: /collections
+Disallow: /contracts
+Disallow: /history
+Disallow: /environments
+Disallow: /cli
+Disallow: /settings
+
+Sitemap: https://usethemis.dev/sitemap.xml

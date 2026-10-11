@@ -1,0 +1,27 @@
+/* The app's styles sit in one cascade layer, so the landing page's Tailwind layers
+   (loaded only on "/") can override element defaults without !important wars. */
+@layer app, theme, base, components, utilities;
+@import "./styles/tokens.css" layer(app);
+@import "./styles/base.css" layer(app);
+@import "./styles/layout.css" layer(app);
+@import "./styles/controls.css" layer(app);
+@import "./styles/tables.css" layer(app);
+@import "./styles/feedback.css" layer(app);
+@import "./styles/shell.css" layer(app);
+@import "./styles/palette.css" layer(app);
+@import "./styles/dashboard.css" layer(app);
+@import "./styles/monitors.css" layer(app);
+@import "./styles/workspace.css" layer(app);
+@import "./styles/collections.css" layer(app);
+@import "./styles/contracts.css" layer(app);
+@import "./styles/environments.css" layer(app);
+@import "./styles/ai.css" layer(app);
+@import "./styles/cli.css" layer(app);
+@import "./styles/settings.css" layer(app);
+@import "./styles/status.css" layer(app);
+@import "./styles/public.css" layer(app);
+@import "./styles/try.css" layer(app);
+@import "./styles/profile.css" layer(app);
+@import "./styles/setup.css" layer(app);
+@import "./styles/notfound.css" layer(app);
+@import "./styles/motion.css" layer(app);

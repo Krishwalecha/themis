@@ -1,0 +1,71 @@
+/* Design tokens: colours, type, spacing, radii, motion. Dark only. */
+
+:root {
+  --font:
+    "Mona Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:
+    "Fragment Mono", ui-monospace, "SF Mono", "Cascadia Code", Consolas,
+    monospace;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --s10: 40px;
+  --s12: 48px;
+  --r-xs: 2px;
+  --r-sm: 3px;
+  --r: 4px;
+  --r-lg: 6px;
+  --r-xl: 8px;
+  --sidebar-w: 232px;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --shell: #0a0a09;
+  --panel: #0a0a09;
+  --surface: #121211;
+  --surface-2: #0e0e0d;
+  --subtle: #171716;
+  --hover: rgba(239, 235, 226, 0.04);
+  --active: rgba(239, 235, 226, 0.07);
+  --border: rgba(239, 235, 226, 0.08);
+  --border-strong: rgba(239, 235, 226, 0.16);
+  --text: #efebe2;
+  --text-2: #cdc8bd;
+  --muted: #a7a297;
+  --faint: #6c6862;
+  --ink: #efebe2;
+  --on-ink: #0a0a09;
+  --ink-hover: #ff6b3d;
+  --accent: #ff6b3d;
+  --accent-text: #ff8a64;
+  --accent-soft: rgba(255, 107, 61, 0.1);
+  --accent-line: rgba(255, 107, 61, 0.45);
+  --accent-deep: #3b170b;
+  --ring: rgba(255, 107, 61, 0.18);
+  --shadow-pop:
+    0 30px 60px -20px rgba(0, 0, 0, 0.85), 0 0 0 1px var(--border-strong);
+  --green: #8fd19e;
+  --green-bg: rgba(143, 209, 158, 0.1);
+  --green-bar: #8fd19e;
+  --amber: #f2c46d;
+  --amber-bg: rgba(242, 196, 109, 0.1);
+  --amber-bar: #e9b44c;
+  --red: #ef8f84;
+  --red-bg: rgba(239, 143, 132, 0.1);
+  --red-bar: #ef6b5a;
+  --blue: #9fb8f5;
+  --blue-bg: rgba(159, 184, 245, 0.1);
+  --bar-empty: #1b1b19;
+  --hatch: rgba(239, 235, 226, 0.06);
+  --mark: rgba(239, 235, 226, 0.25);
+  --chart: #efebe2;
+  --tok-key: #e6e1d6;
+  --tok-string: #ffa47a;
+  --tok-number: #8fd19e;
+  --tok-bool: #d8b4fe;
+  --tok-null: #6c6862;
+  color-scheme: dark;
+}

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Themis · API testing, monitoring and contract validation</title>
+    <meta
+      name="description"
+      content="Test, monitor and validate your APIs in one free workspace. Postman-style API testing, uptime monitoring and OpenAPI contract checks, with AI fixes."
+    />
+    <link rel="canonical" href="https://usethemis.dev/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0a0a09" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/themis-logo.png" />
+
+    <!-- link previews (Slack, X, LinkedIn, Discord…) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Themis" />
+    <meta property="og:url" content="https://usethemis.dev/" />
+    <meta property="og:title" content="Themis · API testing, monitoring and contract validation" />
+    <meta property="og:description" content="Test, monitor and validate your APIs in one workspace. Every response gets a clear pass or fail verdict, and a plain-language fix when it breaks." />
+    <meta property="og:image" content="https://usethemis.dev/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Themis: every API response gets a verdict" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Themis · API testing, monitoring and contract validation" />
+    <meta name="twitter:description" content="Test, monitor and validate your APIs in one workspace. A free, self-hostable Postman alternative." />
+    <meta name="twitter:image" content="https://usethemis.dev/og.png" />
+
+    <!-- structured data: what Themis is, for search engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "Themis",
+            "url": "https://usethemis.dev/",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Web",
+            "description": "An API workspace for API testing, API monitoring and API contract validation, with AI summaries of failures.",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+              "API testing workspace with environments, variables and request history",
+              "Collections with request chaining, and import from curl, Postman and OpenAPI",
+              "Scheduled API monitoring with incidents, Slack and Discord alerts, and maintenance windows",
+              "API contract validation against OpenAPI 3 and JSON Schema, with breaking change detection",
+              "Public status pages",
+              "AI summaries of failures with concrete fixes",
+              "Command-line interface for CI"
+            ],
+            "image": "https://usethemis.dev/og.png"
+          },
+          {
+            "@type": "WebSite",
+            "name": "Themis",
+            "url": "https://usethemis.dev/"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {"@type": "Question", "name": "What is Themis, and why use it?", "acceptedAnswer": {"@type": "Answer", "text": "I'm one workspace for the whole life of an API: send requests, group them into collections, monitor them on a schedule and check every response against your OpenAPI or JSON Schema contract. Instead of juggling an API client, an uptime monitor and a schema checker, you get one place that gives every response a clear pass or fail, and tells you what broke, since when and how to fix it. Free to self-host."}},
+              {"@type": "Question", "name": "Can I import my Postman collections?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Import a Postman collection or an OpenAPI file and I turn it into a collection, an environment and, for OpenAPI, a contract. You can also paste any curl command straight into the URL bar."}},
+              {"@type": "Question", "name": "How do monitors run?", "acceptedAnswer": {"@type": "Answer", "text": "A monitor is a saved request, or a whole collection, on a schedule: as often as every 10 seconds, at set times like weekdays at 09:00, or on a cron expression. I record the latency and every assertion, open an incident when it fails, alert Slack or Discord, and close it when it recovers."}},
+              {"@type": "Question", "name": "What does contract validation check?", "acceptedAnswer": {"@type": "Answer", "text": "Every response, against the OpenAPI 3.1 or JSON Schema version you pin. Upload a new version and I'll flag anything breaking before your users find it."}}
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,300..900&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- the same story in plain HTML, for crawlers and readers without JavaScript -->
+    <noscript>
+      <main style="max-width: 720px; margin: 64px auto; padding: 0 24px; font-family: system-ui, sans-serif; color: #efebe2; background: #0a0a09">
+        <h1>Themis: API testing, API monitoring and API contract validation</h1>
+        <p>
+          Themis is a free, self-hostable API workspace. Send and test API requests with environments and variables, group them into collections, monitor endpoints on a
+          schedule, and validate every response against OpenAPI or JSON Schema contracts. When something breaks, Themis explains what failed and how to fix it.
+        </p>
+        <h2>Features</h2>
+        <ul>
+          <li>API testing workspace: params, headers, auth, JSON, form and file bodies, with a pass or fail verdict for every response</li>
+          <li>Collections with request chaining; import from curl, Postman collections and OpenAPI files</li>
+          <li>API monitoring: schedules, incidents, Slack and Discord alerts, maintenance windows and public status pages</li>
+          <li>API contract validation with OpenAPI 3 and JSON Schema, version history and breaking change detection</li>
+          <li>AI summaries of failures, and a CLI for CI pipelines</li>
+        </ul>
+        <p><a href="/signup">Create a free account</a> · <a href="https://github.com/Krishwalecha/themis">Source on GitHub</a></p>
+      </main>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
