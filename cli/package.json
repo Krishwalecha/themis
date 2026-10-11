@@ -1,0 +1,42 @@
+{
+  "name": "usethemis",
+  "version": "1.0.0",
+  "description": "Themis from your terminal: send a request and get a pass or fail verdict on any API endpoint, ready for CI. Also sets up a self-hosted Themis.",
+  "keywords": [
+    "api",
+    "api-testing",
+    "api-monitoring",
+    "http",
+    "cli",
+    "curl",
+    "health-check",
+    "ci",
+    "contract-testing",
+    "themis"
+  ],
+  "homepage": "https://usethemis.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krishwalecha/themis.git",
+    "directory": "cli"
+  },
+  "bugs": "https://github.com/Krishwalecha/themis/issues",
+  "author": "Krish Walecha",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "themis": "bin/themis.mjs",
+    "usethemis": "bin/themis.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\""
+  }
+}
