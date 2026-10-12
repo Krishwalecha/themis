@@ -1,0 +1,107 @@
+/* Command palette (Ctrl/⌘ K). */
+
+.palette-backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 14vh;
+  background: rgba(9, 9, 8, 0.4);
+}
+
+.palette {
+  width: min(580px, calc(100vw - 32px));
+  overflow: hidden;
+}
+
+.palette-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 var(--s4);
+  border-bottom: 1px solid var(--border);
+  color: var(--faint);
+}
+
+.palette-input input {
+  flex: 1;
+  height: 50px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font: 15px var(--font);
+  outline: none;
+}
+
+.palette-list {
+  max-height: 360px;
+  overflow-y: auto;
+  margin: 0;
+  padding: var(--s2);
+  list-style: none;
+}
+
+.palette-group {
+  padding: var(--s3) var(--s2) var(--s1);
+  font: 500 9.5px var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.palette-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 var(--s2);
+  border: none;
+  border-radius: var(--r);
+  background: none;
+  color: var(--text-2);
+  text-align: left;
+}
+
+.palette-item svg {
+  color: var(--muted);
+}
+
+.palette-item.active {
+  background: var(--hover);
+  color: var(--text);
+}
+
+.palette-item.active svg:last-child {
+  color: var(--accent);
+}
+
+.palette-item .hint {
+  margin-left: auto;
+}
+
+.palette-empty {
+  padding: var(--s6);
+  text-align: center;
+  color: var(--muted);
+}
+
+.palette {
+  border: 1px solid var(--border-strong);
+  background: #0e0e0d;
+  box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.8);
+  border-radius: 14px;
+  animation: float-in 0.16s var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palette {
+    animation: none;
+  }
+}
+
+/* mobile drawer: slides in, and search sits above it */
+.palette-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+}

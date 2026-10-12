@@ -1,0 +1,228 @@
+/* Profile card (hover). */
+
+/* ---- profile card (hover) ---- */
+.pcard-trigger {
+  display: contents;
+}
+
+.pcard-pop {
+  position: fixed;
+  z-index: 300;
+  opacity: 0;
+  transform: translateY(6px) scale(0.97);
+  transform-origin: bottom left;
+  transition:
+    opacity 0.14s ease,
+    transform 0.16s ease;
+}
+
+.pcard-pop.right {
+  transform: translateX(-8px) scale(0.97);
+}
+
+.pcard-pop.in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pcard-pop,
+  .pcard-pop.in {
+    transform: none;
+    transition: opacity 0.1s linear;
+  }
+}
+
+.pcard {
+  width: 300px;
+  padding: 20px 20px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: #0e0e0d;
+  color: var(--text);
+  font-family: var(--font);
+  box-shadow:
+    0 30px 70px -20px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.pcard-name {
+  font: 600 28px/1.08 var(--font);
+  letter-spacing: -0.035em;
+  overflow-wrap: anywhere;
+}
+
+.pcard-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 30px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font: 11px/1 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.pcard-handle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  margin-right: -6px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-2);
+  font: inherit;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.pcard-handle svg {
+  opacity: 0.35;
+}
+
+.pcard-handle:hover {
+  background: rgba(239, 235, 226, 0.06);
+  color: var(--text);
+}
+
+.pcard-handle:hover svg {
+  opacity: 0.8;
+}
+
+.pcard-foot {
+  margin: 0 -20px;
+  padding: 14px 20px 0;
+  border-top: 1px solid var(--border);
+}
+
+.pcard-foot .brand-name {
+  font-size: 19px;
+}
+
+/* profile card: `themis whoami` */
+.pcard-term {
+  margin: 16px -20px 0;
+  border-top: 1px solid var(--border);
+  background: #0a0a09;
+  color: var(--muted);
+}
+
+.pcard-term-bar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.pcard-term-bar i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #262624;
+}
+
+.pcard-term .t-c {
+  color: var(--accent);
+}
+
+.pcard-term .t-p {
+  color: var(--text);
+}
+
+.pcard-term .t-m {
+  color: var(--faint);
+}
+
+.pcard-term .t-ok {
+  color: var(--green);
+}
+
+.pcard-term .t-warn {
+  color: var(--amber-bar);
+}
+
+.pcard-term .t-bad {
+  color: var(--red);
+}
+
+.pcard-spark {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+  vertical-align: -1px;
+}
+
+.pcard-spark i {
+  width: 4px;
+  border-radius: 1px;
+  background: var(--accent);
+}
+
+.pcard-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 13px;
+  vertical-align: -2px;
+  background: var(--accent);
+  animation: pcard-blink 1.1s steps(1) infinite;
+}
+
+@keyframes pcard-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.pcard-line {
+  animation: pcard-line-in 0.18s var(--ease);
+}
+
+@keyframes pcard-line-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+}
+
+.pcard-term {
+  padding: 12px 18px 14px;
+  font: 12px/1.85 var(--mono);
+  white-space: pre;
+  min-height: 210px;
+}
+
+.pcard-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pcard-settings {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 9px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  color: var(--text-2);
+  font-size: 12px;
+  text-decoration: none;
+  transition:
+    color 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.pcard-settings:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}

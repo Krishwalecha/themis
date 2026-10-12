@@ -1,0 +1,156 @@
+/* Settings page. */
+
+.field .settings-hint,
+.field .settings-at {
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* ---- settings: one panel, sections split by hairlines like the rest of the app ---- */
+.settings-panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.settings-section {
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(0, 1fr);
+  column-gap: var(--s8, 48px);
+  align-items: start;
+  padding: var(--s5) var(--s5);
+}
+
+.settings-section + .settings-section {
+  border-top: 1px solid var(--border);
+}
+
+.settings-section > .settings-head {
+  grid-column: 1;
+  grid-row: 1 / span 10;
+}
+
+.settings-section > :not(.settings-head) {
+  grid-column: 2;
+}
+
+.settings-section > :not(.settings-head) ~ :not(.settings-head) {
+  margin-top: var(--s4);
+}
+
+.settings-head p {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.settings-section.danger .eyebrow {
+  color: var(--red);
+}
+
+.settings-handle {
+  position: relative;
+}
+
+.settings-handle .input {
+  width: 100%;
+  padding-left: 26px;
+}
+
+.field .settings-at {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  font: 13px var(--mono);
+  text-transform: none;
+  letter-spacing: normal;
+  pointer-events: none;
+}
+
+.settings-handle.ok .input {
+  border-color: rgba(143, 209, 158, 0.45);
+}
+
+.settings-handle.bad .input {
+  border-color: rgba(239, 143, 132, 0.5);
+}
+
+.field .settings-hint {
+  margin-top: 6px;
+  color: var(--muted);
+  font: 12px/1.4 var(--font);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.field .settings-hint.ok {
+  color: var(--green);
+}
+
+.field .settings-hint.bad {
+  color: var(--red);
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s2);
+}
+
+/* an input with a fixed lead-in, like the status page's address */
+.settings-prefix {
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+}
+
+.field .settings-prefix-text {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-right: 0;
+  border-radius: var(--r) 0 0 var(--r);
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+}
+
+.settings-prefix .input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 0 var(--r) var(--r) 0;
+}
+
+.settings-checklist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 6px var(--s4);
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.settings-checklist .checkbox-field {
+  min-width: 0;
+}
+
+@media (max-width: 820px) {
+  .settings-section {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--s4);
+  }
+
+  .settings-section > .settings-head,
+  .settings-section > :not(.settings-head) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .settings-section > .settings-head {
+    margin-bottom: var(--s4);
+  }
+}

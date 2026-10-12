@@ -1,0 +1,124 @@
+/* Post sign-in setup screen. */
+
+/* ---- after sign-in: the tiled T assembles, then the dot lands ---- */
+.setup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  min-height: 100vh;
+  padding: 24px;
+  text-align: center;
+  background: var(--shell);
+  animation: fade-in 0.3s var(--ease);
+}
+
+.setup-tiles {
+  display: grid;
+  grid-template-columns: repeat(5, 12px);
+  gap: 3px;
+}
+
+.setup-tiles i {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.setup-tiles i.on {
+  animation: tile-on 0.28s var(--ease) both;
+}
+
+.setup-tiles i.dot {
+  animation: tile-dot 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes tile-on {
+  from {
+    background: rgba(255, 255, 255, 0.04);
+  }
+  to {
+    background: var(--text);
+  }
+}
+
+@keyframes tile-dot {
+  from {
+    transform: scale(0);
+    background: var(--accent);
+  }
+  to {
+    transform: scale(1);
+    background: var(--accent);
+  }
+}
+
+.setup h1 {
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.setup h1 .wordmark-dot {
+  color: var(--accent);
+}
+
+.setup-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: -14px;
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+
+.setup-tag {
+  padding: 2px 7px;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--faint);
+}
+
+.setup-tag.ok {
+  border-color: transparent;
+  background: var(--green-bar);
+  color: #0a0a09;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .setup-tiles i {
+    animation-duration: 0.01s !important;
+  }
+}
+
+/* first sign-in: optional "bring your API in" step */
+.setup.onboard {
+  align-items: center;
+  text-align: left;
+}
+.onboard-card {
+  display: grid;
+  gap: var(--s4);
+  width: min(620px, 100%);
+  animation: fade-in 0.3s ease both;
+}
+.onboard-card h1 {
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+.onboard-card h1 .wordmark-dot {
+  color: var(--accent);
+}
+.onboard-card > p {
+  max-width: 56ch;
+  font-size: 14px;
+  line-height: 1.55;
+}
