@@ -1,0 +1,377 @@
+/* Collections: list, detail, run results and save-to-collection. */
+
+/* ---- collections ---- */
+.collection-new {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.collection-new .input {
+  flex: 1 1 260px;
+}
+
+.collection-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.collection-head .eyebrow a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.collection-head .eyebrow a:hover {
+  color: var(--text);
+}
+
+.collection-title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.collection-desc {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--muted);
+  font: 14px var(--font);
+}
+
+.collection-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.order-cell {
+  width: 64px;
+  white-space: nowrap;
+}
+
+.order-cell .icon-btn {
+  width: 24px;
+  height: 24px;
+}
+
+.run-summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: #0e0e0d;
+  font-size: 13px;
+}
+
+.run-summary .btn {
+  margin-left: auto;
+}
+
+.run-tag {
+  padding: 2px 7px;
+  border-radius: 4px;
+  font: 600 10.5px var(--mono);
+  letter-spacing: 0.06em;
+  color: #0a0a09;
+  background: var(--green-bar);
+}
+
+.run-summary.fail .run-tag {
+  background: var(--red-bar);
+}
+
+.table tr.run-fail td {
+  background: rgba(239, 107, 90, 0.05);
+}
+
+.run-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.run-contract {
+  color: var(--red);
+}
+
+/* ---- chaining: what a request captures for the ones after it ---- */
+.extract-sets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-top: 6px;
+  font-size: 11px;
+}
+
+.extract-set {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-2);
+}
+
+.extract-set::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--faint);
+}
+
+.extract-set.ok::before {
+  background: var(--green);
+}
+
+.extract-set.missing {
+  color: var(--red);
+}
+
+.extract-set.missing::before {
+  background: var(--red);
+}
+
+.run-hint {
+  max-width: 420px;
+  margin: 6px 0 0;
+  line-height: 1.45;
+}
+
+.run-unset {
+  color: var(--amber-bar);
+}
+
+.btn .btn-count {
+  min-width: 16px;
+  padding: 0 4px;
+  border-radius: 4px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font: 600 10.5px/16px var(--mono);
+  text-align: center;
+}
+
+.btn.ghost.active {
+  border-color: var(--border-strong);
+  background: var(--hover);
+  color: var(--text);
+}
+
+/* the editor opens as part of the request's row, not a box inside it */
+.table tr:has(+ .extract-row-wrap) > td {
+  border-bottom-color: transparent;
+}
+
+.table tr.extract-row-wrap > td {
+  padding-top: 0;
+  padding-bottom: var(--s5);
+}
+
+.extract-editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  max-width: 760px;
+  padding-left: var(--s4);
+  border-left: 2px solid var(--accent-line);
+}
+
+.extract-head {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.extract-head .strong {
+  font-size: 13px;
+}
+
+.extract-rules {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.extract-row {
+  display: grid;
+  grid-template-columns: 180px auto 140px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.extract-row .input,
+.extract-row .select-trigger {
+  height: 32px;
+  font-size: 12px;
+}
+
+.extract-var {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  background: var(--surface-2);
+  color: var(--faint);
+  font-size: 12px;
+  transition: border-color 0.12s var(--ease);
+}
+
+.extract-var:focus-within {
+  border-color: var(--accent-line);
+}
+
+.extract-var input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 4px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--accent-text);
+  font: inherit;
+}
+
+.extract-var input::placeholder {
+  color: var(--faint);
+}
+
+.extract-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.extract-actions .link-btn {
+  margin-right: auto;
+}
+
+@media (max-width: 720px) {
+  .extract-rules {
+    gap: var(--s4);
+  }
+
+  .extract-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 28px;
+  }
+
+  .extract-from {
+    display: none;
+  }
+
+  .extract-var {
+    grid-column: 1 / 3;
+  }
+
+  .extract-row > .icon-btn {
+    grid-row: 1;
+    grid-column: 3;
+  }
+
+  .table tr.extract-row-wrap > td:first-child {
+    display: none;
+  }
+}
+
+.save-to {
+  position: relative;
+  display: flex;
+  gap: 6px;
+}
+
+.save-pop {
+  width: 320px;
+}
+
+@media (max-width: 640px) {
+  .table td.order-cell {
+    order: 0;
+    width: auto;
+  }
+
+  .collection-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2);
+  }
+
+  .collection-new .input {
+    flex-basis: 100%;
+  }
+
+  .run-summary {
+    flex-wrap: wrap;
+  }
+}
+
+/* import: paste or drop a curl command, a Postman collection or an OpenAPI document */
+.import-inline {
+  display: grid;
+  gap: var(--s3);
+  margin-bottom: var(--s5);
+  padding: var(--s5);
+}
+.import-panel {
+  display: grid;
+  gap: var(--s3);
+}
+.import-drop {
+  display: grid;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+.import-drop.over {
+  border-color: var(--accent);
+  background: rgba(255, 107, 61, 0.04);
+}
+.import-text {
+  min-height: 168px;
+  max-height: 360px;
+  padding: 14px;
+  border: 0;
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  background: transparent;
+  font-size: 12.5px;
+  line-height: 1.6;
+  resize: vertical;
+}
+.import-text:focus {
+  outline: none;
+  box-shadow: none;
+}
+.import-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: 8px 10px;
+  border-top: 1px dashed var(--border-strong);
+}
+.import-error {
+  color: var(--red);
+  font-size: 12.5px;
+}
+.import-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s2);
+}
