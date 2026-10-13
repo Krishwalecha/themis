@@ -1,0 +1,217 @@
+/* Contracts: editor, preview and diffs. */
+
+.op-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.op-list a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.op-list a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+.editor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--s3);
+  padding-top: var(--s1);
+}
+
+.contract-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: var(--s4);
+  align-items: start;
+}
+
+.contract-doc {
+  min-height: 440px;
+  font-size: 12px;
+}
+
+.contract-result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.contract-result-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s3);
+}
+
+.violation-list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--red);
+}
+
+.drift-list {
+  color: var(--amber);
+}
+
+.violation-list .mono {
+  color: var(--text);
+}
+
+.op-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.op-list li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.version-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.version-list > li + li {
+  border-top: 1px solid var(--border);
+}
+
+/* one line per version: its own verdict, what changed, when; details fold out */
+.version-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  /* same height as a row in Recent validations beside it */
+  min-height: 54px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: var(--r);
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+}
+
+.version-row:focus {
+  outline: none;
+}
+
+.version-row:focus-visible {
+  box-shadow: inset 0 0 0 1px var(--accent-line);
+}
+
+.version-row:not(:disabled):hover {
+  background: var(--hover);
+}
+
+.version-row:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.version-num {
+  min-width: 28px;
+  font: 600 13px var(--mono);
+}
+
+.version-current {
+  padding: 1px 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  color: var(--text-2);
+  font: 10.5px var(--mono);
+}
+
+.version-meta {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.version-chevron {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.15s var(--ease);
+}
+
+.version-row.open .version-chevron {
+  transform: rotate(90deg);
+}
+
+.version-changes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  padding: 4px 4px var(--s3) 42px;
+}
+
+.validate-row {
+  display: flex;
+  gap: var(--s2);
+}
+
+@media (max-width: 1000px) {
+  .contract-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .contract-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* the contract's current verdict, under its title */
+.contract-status {
+  margin-top: var(--s2);
+}
+
+/* the request column takes what's left and truncates, so status, source and time stay on screen */
+.validation-req {
+  width: 100%;
+  max-width: 0;
+}
+
+.validation-req > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Versions and Recent validations: same card height, pagination on the same line */
+.contract-log {
+  display: flex;
+  flex-direction: column;
+}
+
+.contract-log > .pagination {
+  margin-top: auto;
+  padding-top: var(--s4);
+}
+
+.change-compat {
+  color: var(--amber-bar);
+  white-space: nowrap;
+}
+
+.contract-log-hint {
+  margin: -6px 0 var(--s2);
+  line-height: 1.5;
+}

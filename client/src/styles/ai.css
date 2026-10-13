@@ -1,0 +1,205 @@
+/* AI summary cards. */
+
+.grid-main > .ai-card,
+.two-col > .ai-card {
+  align-self: start;
+}
+
+.ai-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  padding: var(--s5);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.ai-card.compact {
+  padding: var(--s3) var(--s4);
+}
+
+.ai-empty {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.ai-empty .btn {
+  margin-left: auto;
+}
+
+.ai-mark {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: var(--r-xs);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font: 600 10px/1 var(--mono);
+  letter-spacing: 0.08em;
+}
+
+.ai-head {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.ai-title {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.ai-meta {
+  margin-left: auto;
+  font: 11px var(--mono);
+}
+
+.ai-headline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.ai-headline strong {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: 500 11px var(--mono);
+}
+
+.ai-badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+.ai-badge-ok {
+  color: var(--green);
+}
+
+.ai-badge-info {
+  color: var(--blue);
+}
+
+.ai-badge-warning {
+  color: var(--amber);
+}
+
+.ai-badge-critical {
+  color: var(--red);
+}
+
+.ai-text {
+  color: var(--text-2);
+  line-height: 1.65;
+}
+
+.ai-highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.ai-highlights li {
+  display: flex;
+  gap: 10px;
+}
+
+.ai-hl-icon {
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  flex-shrink: 0;
+  border-radius: 1px;
+  background: var(--faint);
+}
+
+.ai-hl-ok .ai-hl-icon {
+  background: var(--green-bar);
+}
+
+.ai-hl-info .ai-hl-icon {
+  background: var(--blue);
+}
+
+.ai-hl-warning .ai-hl-icon {
+  background: var(--amber-bar);
+}
+
+.ai-hl-critical .ai-hl-icon {
+  background: var(--red-bar);
+}
+
+.ai-recs {
+  padding-top: var(--s3);
+  border-top: 1px dashed var(--border-strong);
+}
+
+.ai-recs ol {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.ai-recs li::marker {
+  font: 11px var(--mono);
+  color: var(--accent-text);
+}
+
+/* AI summary: meta drops to its own line in narrow cards instead of wrapping word by word */
+.ai-head {
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+.ai-meta {
+  white-space: nowrap;
+}
+
+.ai-head .link-btn {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.ai-card.compact .ai-meta {
+  order: 3;
+  flex-basis: 100%;
+  margin-left: 0;
+  color: var(--faint);
+}
+
+.ai-card.compact .ai-headline {
+  font-size: 14px;
+  gap: 8px;
+}
+
+.ai-card.compact .ai-text,
+.ai-card.compact .ai-highlights {
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.ai-card.compact .hint {
+  font-size: 11.5px;
+}
