@@ -1,0 +1,66 @@
+/* /try: the request workspace for guests, without the app shell. */
+
+.try-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--s3);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--s5);
+}
+
+.try-note {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.try-note .eyebrow {
+  flex-shrink: 0;
+  color: var(--accent-text);
+}
+
+.try-note p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.try-note a,
+.try-foot a {
+  color: var(--accent-text);
+  text-underline-offset: 3px;
+}
+
+.try-main .split {
+  flex: 1;
+  min-height: 460px;
+}
+
+.try-foot {
+  margin: 0;
+}
+
+.try-foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 640px) {
+  .try-main {
+    padding: var(--s4);
+  }
+
+  .try-note {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

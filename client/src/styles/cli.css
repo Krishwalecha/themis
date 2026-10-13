@@ -1,0 +1,121 @@
+/* CLI page. */
+
+/* ---- CLI page ---- */
+.cli-shells {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  margin-bottom: 20px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.cli-shells button {
+  height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 5px;
+  background: none;
+  color: var(--muted);
+  font: 12px var(--mono);
+  cursor: pointer;
+}
+
+.cli-shells button:hover {
+  color: var(--text);
+}
+
+.cli-shells button.active {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.cli-shell-hint {
+  padding: 0 10px;
+  font: 11px var(--mono);
+  color: var(--faint);
+}
+
+.cli-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr));
+  gap: 14px;
+}
+
+.cli-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.cli-block-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cli-block h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cli-block p {
+  margin-top: 3px;
+  font-size: 12.5px;
+}
+
+.cli-code {
+  position: relative;
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #0a0a09;
+}
+
+.cli-code pre {
+  margin: 0;
+  padding: 12px 44px 12px 14px;
+  font: 12px/1.75 var(--mono);
+  color: var(--text);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.cli-prompt {
+  color: var(--accent);
+  user-select: none;
+}
+
+.cli-copy {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
+.cli-foot {
+  margin-top: 18px;
+  font: 11.5px var(--mono);
+}
+
+.cli-ci {
+  margin-top: 14px;
+}
+
+@media (max-width: 640px) {
+  .cli-shell-hint {
+    display: none;
+  }
+
+  .cli-shells button {
+    flex: 1;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,171 @@
+/* The public status page at /status/:slug: one quiet column, no app chrome. */
+
+.status-public {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8, 48px);
+  width: 100%;
+  max-width: 820px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 72px 24px 40px;
+}
+
+.status-public > .dm-loader {
+  margin: auto;
+}
+
+.status-public-head h1 {
+  margin: 0 0 var(--s4);
+  font-size: 28px;
+  letter-spacing: -0.02em;
+}
+
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  font-weight: 500;
+}
+
+.status-banner .pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.status-banner.operational .pill-dot {
+  background: var(--green);
+}
+
+.status-banner.degraded {
+  border-color: var(--amber-bar);
+}
+
+.status-banner.degraded .pill-dot {
+  background: var(--amber-bar);
+}
+
+.status-banner.down {
+  border-color: var(--red-bar);
+  background: var(--red-bg);
+}
+
+.status-banner.down .pill-dot {
+  background: var(--red);
+}
+
+.status-public-list {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+}
+
+.status-public-list > .muted {
+  padding: 18px;
+}
+
+.status-public-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+}
+
+.status-public-row + .status-public-row {
+  border-top: 1px solid var(--border);
+}
+
+.status-public-name {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.status-public-name .strong {
+  margin-right: auto;
+}
+
+.status-public-axis {
+  display: flex;
+  justify-content: space-between;
+  color: var(--faint);
+  font-size: 11px;
+}
+
+.status-public-incidents h2 {
+  margin: 0 0 var(--s3);
+}
+
+.status-public-incidents ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.status-public-incidents li {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: 10px 0;
+  min-width: 0;
+}
+
+.status-public-incidents li + li {
+  border-top: 1px solid var(--border);
+}
+
+.status-public-incidents li .muted {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.status-public-foot {
+  margin-top: auto;
+  color: var(--faint);
+  font-size: 11px;
+  text-align: center;
+}
+
+.status-public-foot a {
+  color: var(--muted);
+}
+
+.status-missing {
+  margin: auto;
+  text-align: center;
+}
+
+.status-missing h1 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+@media (max-width: 640px) {
+  .status-public {
+    gap: var(--s6, 32px);
+    padding: 40px 16px 28px;
+  }
+
+  .status-public-name {
+    flex-wrap: wrap;
+  }
+
+  .status-public-name .strong {
+    flex-basis: 100%;
+  }
+
+  .status-public-incidents li {
+    flex-wrap: wrap;
+  }
+
+  .status-public-incidents li .muted {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+}
