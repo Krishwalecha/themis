@@ -1,0 +1,203 @@
+/* Landing page only. No Tailwind preflight: a scoped reset under .lp keeps the app untouched.
+   Layer order is declared in src/index.css (app < theme < base < components < utilities). */
+@layer app, theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@import "lenis/dist/lenis.css";
+@source "./";
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-fog: var(--fog);
+  --color-mute: var(--mute);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-add: var(--add);
+  --color-del: var(--del);
+  --font-sans: "Mona Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+  --font-mono: "Fragment Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-dot: "Mona Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  .lp {
+    --ink: #0a0a09;
+    --ink-2: #121211;
+    --ink-3: #1b1b19;
+    --paper: #efebe2;
+    --paper-2: #e6e1d6;
+    --fog: #a7a297;
+    --mute: #6c6862;
+    --accent: #ff6b3d;
+    --accent-deep: #3b170b;
+    --add: #8fd19e;
+    --del: #ef8f84;
+    --nav-h: 60px;
+    min-height: 100vh;
+    overflow-x: clip;
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    letter-spacing: normal;
+  }
+  .lp *,
+  .lp ::before,
+  .lp ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  .lp h1,
+  .lp h2,
+  .lp h3,
+  .lp p,
+  .lp dd {
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+  .lp a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+  .lp button {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+  }
+  .lp ol,
+  .lp ul {
+    list-style: none;
+  }
+  .lp canvas,
+  .lp svg {
+    display: block;
+  }
+  .lp pre,
+  .lp code,
+  .lp kbd {
+    font-family: var(--font-mono);
+  }
+  .lp ::selection {
+    background: var(--accent);
+    color: var(--ink);
+  }
+  .lp :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+@utility container-x {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* Mona Sans at its natural width: tight, upright, engineered. Emphasis words switch to Newsreader italic. */
+@utility type-display {
+  font-stretch: 100%;
+  font-weight: 620;
+  letter-spacing: -0.05em;
+  line-height: 0.94;
+}
+
+@utility type-title {
+  font-stretch: 100%;
+  font-weight: 580;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+@utility serif-em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+@utility type-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Engineering-pad paper for the light sections */
+@utility graph-paper {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(to right, rgb(10 10 9 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(10 10 9 / 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+.dither-canvas[data-fallback] {
+  background-color: var(--ink);
+  background-image: radial-gradient(circle at 70% 70%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(300%);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Blueprint: faint column guides across the whole page, aligned to the container. */
+.lp-blueprint {
+  background-image: repeating-linear-gradient(
+    to right,
+    rgb(239 235 226 / 0.045) 0 1px,
+    transparent 1px calc((min(100vw, 1320px) - 2 * clamp(1.25rem, 4vw, 2.5rem)) / 12)
+  );
+  background-position: center top;
+  background-size: min(100vw, 1320px) 100%;
+  background-repeat: repeat-y;
+}
+
+/* Torn edge for the receipt */
+.receipt-edge {
+  height: 10px;
+  background:
+    linear-gradient(-45deg, transparent 6px, var(--paper) 0) 0 0 / 12px 12px repeat-x,
+    linear-gradient(45deg, transparent 6px, var(--paper) 0) 0 0 / 12px 12px repeat-x;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lp *,
+  .lp *::before,
+  .lp *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
