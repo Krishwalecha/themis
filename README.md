@@ -29,7 +29,7 @@ Open http://localhost:5173. No database setup is needed for development: without
 
 Themis has two parts: the **app** in `client/` (a static site) and the **API** in `server/` (a Node service that also runs your monitors).
 
-- **App:** host it anywhere that serves static files with a single-page fallback and can forward `/api` to the API on the same domain, so sign-in cookies work. `client/vercel.json` does this on Vercel: change its `/api` destination to your API's address.
+- **App:** host it anywhere that serves static files with a single-page fallback and can forward `/api` to the API on the same domain, so sign-in cookies work. On Vercel this is built in (`client/vercel.json` and `client/api/proxy.js`): set `THEMIS_API_URL` to your API's address.
 - **API:** host it on an always-on Node host with a MongoDB database (`MONGODB_URI` is required in production), so monitors keep running.
 
 Build both with `npm run build`, then start the API with `npm start -w server`.
